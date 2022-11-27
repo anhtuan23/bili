@@ -22,7 +22,7 @@ def main():
     # subprocess.run(["env/bin/python", "start.py", "-h"])
 
     subprocess.run(
-        f"env/bin/python start.py -i {link} -d {download_mode} --ym --yac --yr --yf --mc hev --nar -s -o {output_folder} --vf mp4",
+        f"env/bin/python start.py -i {link} -d {download_mode} --ym --yac --yr --yf --mc hev --nar -o {output_folder} --vf mp4",
         shell=True,
     )
 
