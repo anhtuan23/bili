@@ -22,7 +22,7 @@ def main():
     # subprocess.run(["env/bin/python", "start.py", "-h"])
 
     subprocess.run(
-        f"env/bin/python start.py -i {link} -d {download_mode} --ym --yac --yr --yf --mc hev --nar -o {output_folder} --vf mp4",
+        f"env/bin/python start.py -i {link} -d {download_mode} -p a --ym --yac --yad --yr --yf --mc hev --nar -o {output_folder} --vf mp4",
         shell=True,
     )
 
@@ -32,6 +32,7 @@ def main():
     #         "start.py",
     #         f"-i {link}",
     #         "-d 3",  # Download method: 3.video 6.subtitles only 7.cover image only 8.audio only
+    #         "-p <number>",  # The number of videos/parts you want to download. Use "a" to select all videos/parts.
     #         "--ym",  # Enable download with maximum quality
     #         "--yac",  # Enable "Continue Download" function.
     #         "--yad",  # Enable Enable delete useless files after merge is complete.
