@@ -44,3 +44,5 @@ compiler.jar
 *.otf
 *.woff
 *.woff2
+# MacOS file
+.DS_Store
