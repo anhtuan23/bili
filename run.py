@@ -1,28 +1,34 @@
-import sys
 import subprocess
+import sys
 from urllib.parse import urlsplit, urlunsplit
+
 
 def main():
     link = sys.argv[1]
     assert link is not None
 
     # Download method: 3.video 6.subtitles only 7.cover image only 8.audio only
-    download_mode = "8" if (len(sys.argv) >=3 and sys.argv[2] == '-a') else "3"
+    download_mode = "8" if (len(sys.argv) >= 3 and sys.argv[2] == "-a") else "3"
 
-    output_folder = "/Volumes/Passport/Timo"
+    if sys.platform.startswith("linux"):
+        output_folder = "/media/kaestrl/Passport/Timo"
+    elif sys.platform.startswith("darwin"):
+        output_folder = "/Volumes/Passport/Timo"
+    else:
+        print("Error: Unknown. Exiting ...")
+        return
 
     # remove all query parameters
     link = urlunsplit(urlsplit(link)._replace(query="", fragment=""))
 
     print(link)
 
-
     # subprocess.run(["source", "./env/bin/activate"])
 
     # subprocess.run(["env/bin/python", "start.py", "-h"])
 
     subprocess.run(
-        f"env/bin/python start.py -i {link} -d {download_mode} -p a --ym --yac --yad --yr --yf --mc hev --nar -o {output_folder} --vf mp4",
+        f".venv/bin/python start.py -i {link} -d {download_mode} -p a --ym --yac --yad --yr --yf --mc hev --nar -o {output_folder} --vf mp4",
         shell=True,
     )
 
