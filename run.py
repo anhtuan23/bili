@@ -2,6 +2,8 @@ import subprocess
 import sys
 from urllib.parse import urlsplit, urlunsplit
 
+import chime
+
 
 def main():
     link = sys.argv[1]
@@ -52,6 +54,8 @@ def main():
     #         "-vf mp4",  # The video format output from ffmpeg
     #     ]
     # )
+
+    chime.success()
 
 
 if __name__ == "__main__":
